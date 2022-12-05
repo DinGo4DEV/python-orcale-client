@@ -2,9 +2,11 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main","release/*" ]
+    branches: [ "release/*" ]
+    tags:
+      - v*
   pull_request:
-    branches: [ "main","release/*" ]
+    branches: [ "release/*" ]  
   workflow_dispatch:
     inputs:
       logLevel:
