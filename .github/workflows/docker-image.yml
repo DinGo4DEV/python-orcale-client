@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "release/*" ]
     tags:
-      - v*
+      - python-v*.*-orcale-v*.*
   pull_request:
     branches: [ "release/*" ]  
   workflow_dispatch:
@@ -37,4 +37,4 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag python-orcale-client:${{ inputs.tags }}
+      run: docker build . --file Dockerfile --tag python-orcale-client:${{ github.ref_name }}
