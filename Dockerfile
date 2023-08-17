@@ -1,4 +1,4 @@
-ARG VERSION=3.11.0
+ARG VERSION=3.11.4-slim
 ARG ARTIFACT=python
 ARG HOST="docker.io"
 FROM --platform=linux/amd64 $HOST/$ARTIFACT:$VERSION 
@@ -22,5 +22,5 @@ RUN rm -f /etc/localtime \
 && echo "Hongkong" > /etc/timezone
 ENV LD_LIBRARY_PATH=/opt/instantclient_19_12:$LD_LIBRARY_PATH
 ENV PATH==/opt/instantclient_19_12:$PATH
-RUN pip install cx_Oracle
+RUN pip install oracledb
 CMD ["python"]
